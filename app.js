@@ -1,24 +1,19 @@
 var express = require('express'),
     xml2js = require('xml2js'),
-    http = require("http")
+    request = require('request')
 ;
 
 var app = express();
 app.use(express.static('public_html'));
 
 app.get('/seasonvar', function(req, res) {
-    http.get("http://seasonvar.ru/rss.php", function(resp) {
-        var data = '';
-        resp.setEncoding('utf8');
-        resp.on('data', function(chunk){
-            data += chunk;
-        });
-        resp.on('end', function(){
+    request('http://seasonvar.ru/rss.php', function (error, response, body) {
+        if (!error) {
             var parser = new xml2js.Parser();
-            parser.parseString(data, function (err, result) {
+            parser.parseString(body, function (err, result) {
                 res.send(result.rss.channel[0].item);
             });
-        });
+        }
     });
 });
 

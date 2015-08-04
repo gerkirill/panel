@@ -1,0 +1,4 @@
+ - appearance date (time ago)
+ - currencies widget corners + lag (make it server-side)
+ - show filtered-out series
+ - weather forecast widget

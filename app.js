@@ -1,6 +1,7 @@
 var express = require('express')
   , xml2js = require('xml2js')
   , request = require('request')
+  , moment = require('moment')
 ;
 
 var app = express();
@@ -13,6 +14,17 @@ app.get('/seasonvar', function(req, res) {
         parser.parseString(body, function (err, result) {
             res.send(result.rss.channel[0].item);
         });
+    });
+});
+// type is either 'bid' or 'ask'
+app.get('/banker-ua/:type', function(req, res) {
+    var endDate = moment().format('DD.MM.YYYY');
+    var startDate = moment().subtract(3, 'days').format('DD.MM.YYYY');
+    request(
+        'http://banker.ua/marketindex/currency_graph_ib/'+startDate+'/'+endDate+'/USD/' + req.params.type,
+        function (error, response, body) {
+        if (error) return;
+        res.send(body);
     });
 });
 

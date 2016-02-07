@@ -9,9 +9,10 @@
             window.app = angular.module('panel', []);
         </script>
         <script src="js/seasonvar.js"></script>
+        <script src="js/banker-ua.js"></script>
     </head>
     <body>
-        
+
         <div style="float:left;color: #fff; border: 1px solid #50673A; padding: 2px; margin: 15px" ng-controller="seasonvar">
             <div style="border: 1px solid #83BB4E; padding: 8px">
                 <div ng-repeat="serial in serials" style="color:#83BB4E">
@@ -20,7 +21,22 @@
                 </div>
             </div>
         </div>
-        
+
+        <div style="float:left;color: #fff; border: 1px solid #50673A; padding: 2px; margin: 15px" ng-controller="bankerUa">
+            <div style="border: 1px solid #83BB4E; padding: 8px; float:left">
+                <h3>Продать</h3>
+                <div ng-repeat="bidLine in bidLines">
+                    {{bidLine.label}}: <span ng-repeat="point in (bidLine.data | limitTo:-1)">{{point[1] | currency:''}}</span>
+                </div>
+            </div>
+            <div style="border: 1px solid #83BB4E; padding: 8px; float:left">
+                <h3>Купить</h3>
+                <div ng-repeat="askLine in askLines">
+                    {{askLine.label}}: <span ng-repeat="point in askLine.data | limitTo:-1">{{point[1] | currency:''}}</span>
+                </div>
+            </div>
+        </div>
+
         <div style="float:left;color: #fff; border: 1px solid #50673A; padding: 2px; margin: 15px">
             <div style="border: 1px solid #83BB4E; padding: 8px; background: #041F00">
                 <!--Kurs.com.ua main-ukraine 350x130 green-->
@@ -41,7 +57,7 @@
             flashMap.addParam("quality",    "high");
             flashMap.addParam("wmode",    "transparent");
             flashMap.addParam("flashvars",  "color=FFFFFF&logo=1&city=1000376911");
-            flashMap.write("flash_container_tt55bc8ff56875b");	
+            flashMap.write("flash_container_tt55bc8ff56875b");
 </script></td></tr><tr><td style="text-align: center; font-weight: bold"></td></tr></table>
         </div>
     </body>

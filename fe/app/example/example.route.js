@@ -10,8 +10,8 @@ export default function exampleRoutes($stateProvider, $urlRouterProvider) {
         `<example
            url="/api/proxy/http://seasonvar.ru/rss.php"
            limit=10
-           interval=5
+           interval=60
          ></example>
-         <banker></banker>`
+         <banker interval=60></banker>`
     })
 }

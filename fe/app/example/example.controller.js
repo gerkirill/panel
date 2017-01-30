@@ -10,6 +10,8 @@ export default class Controller {
     this.$q = $q;
     this.$interval = $interval;
     this.exampleService = exampleService;
+    // privates
+    this.updateInterval = null;
   }
 
   getRss() {
@@ -39,9 +41,13 @@ export default class Controller {
 
   $onInit() {
     this.updateSeries();
-    this.$interval(
+    this.updateInterval = this.$interval(
       () => this.updateSeries(),
       1000 * (this.interval ? this.interval : 60)
     );
+  }
+
+  $onDestroy() {
+    this.$interval.cancel(this.updateInterval);
   }
 }

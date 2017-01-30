@@ -1,0 +1,25 @@
+{
+  "name": "panel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "DEBUG=*:* ./node_modules/.bin/forever -w server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kirill Gerasimenko",
+  "license": "ISC",
+  "dependencies": {
+    "forever": "^0.15.3",
+    "debug": "^2.6.0",
+    "express": "^4.13.2",
+    "request": "^2.60.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.14.1",
+    "eslint-config-node": "^1.6.0"
+  }
+}

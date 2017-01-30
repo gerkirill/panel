@@ -1,0 +1,14 @@
+<div style="float:left;color: #fff; border: 1px solid #50673A; padding: 2px; margin: 15px">
+	<div style="border: 1px solid #83BB4E; padding: 8px; float:left">
+		<h3>Продать</h3>
+		<div ng-repeat="bidLine in $ctrl.bidLines">
+			{{bidLine.label}}: <span ng-repeat="point in (bidLine.data | limitTo:-1)">{{point[1] | currency:''}}</span>
+		</div>
+	</div>
+	<div style="border: 1px solid #83BB4E; padding: 8px; float:left">
+		<h3>Купить</h3>
+		<div ng-repeat="askLine in $ctrl.askLines">
+			{{askLine.label}}: <span ng-repeat="point in askLine.data | limitTo:-1">{{point[1] | currency:''}}</span>
+		</div>
+	</div>
+</div>

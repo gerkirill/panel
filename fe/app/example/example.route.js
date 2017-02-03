@@ -7,11 +7,8 @@ export default function exampleRoutes($stateProvider, $urlRouterProvider) {
     .state('example', {
       url: '/example',
       template:
-        `<example
-           url="/api/proxy/http://seasonvar.ru/rss.php"
-           limit=10
-           interval=60
-         ></example>
-         <banker interval=60></banker>`
+        `<example limit=1000 interval=60></example>
+         <banker interval=60></banker>
+         <kurs-com-ua interval=60></kurs-com-ua>`
     })
 }

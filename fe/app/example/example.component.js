@@ -6,7 +6,6 @@ export default {
   template: exampleHtml,
   controllerAs: 'example',
   bindings: {
-    url: '@',
     limit: '<',
     interval: '<'
   }

@@ -5,4 +5,4 @@ import service from './banker.service';
 angular
   .module('banker', [])
   .component('banker', component)
-  .service('bankerService', service);
+  .provider('bankerService', service);

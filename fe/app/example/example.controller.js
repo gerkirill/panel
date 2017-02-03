@@ -2,7 +2,6 @@ export default class Controller {
 
   constructor($http, $q, $interval, exampleService) {
     // bindings
-    this.url = '';
     this.limit = 10;
     this.interval = 60;
     // dependencies
@@ -15,7 +14,7 @@ export default class Controller {
   }
 
   getRss() {
-    return this.exampleService.getRss(this.url);
+    return this.exampleService.getRss();
   }
 
   getConfig() {

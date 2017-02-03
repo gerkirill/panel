@@ -6,5 +6,5 @@ import service from './example.service';
 angular
   .module('example', [])
   .component('example', component)
-  .service('exampleService', service)
+  .provider('exampleService', service)
   .config(routing);

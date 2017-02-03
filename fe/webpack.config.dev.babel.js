@@ -17,7 +17,17 @@ module.exports = new WebpackConfig().extend('./webpack.config.common.babel.js').
   ],
   devServer: {
     proxy: {
-      '/api': {target: 'http://localhost:3000'}
+      '/api': {target: 'http://localhost:3000'},
+      '/proxy/seasonvar.ru': {
+        target: 'http://seasonvar.ru',
+        changeOrigin: true,
+        pathRewrite: {'^/proxy/seasonvar.ru' : ''}
+      },
+      '/proxy/banker.ua': {
+        target: 'http://banker.ua',
+        changeOrigin: true,
+        pathRewrite: {'^/proxy/banker.ua' : ''}
+      }
     }
   }
 });

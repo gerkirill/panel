@@ -1,6 +1,6 @@
-import angular from 'angular';
+import {module} from 'angular';
 import directive from './kurs.directive';
 
-angular
-  .module('kurs', [])
+export let kurs =
+  module('kurs', [])
   .directive('kursComUa', directive);

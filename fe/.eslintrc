@@ -35,7 +35,7 @@
     "angular/on-watch": 1,
     "angular/no-http-callback": 1,
     "angular/controller-name": 2,
-    "angular/directive-name": [2,"ci"],
+    "angular/directive-name": 0,
     "angular/di": 2,
     "angular/di-order": 2,
     "angular/function-type": [2,"named"],

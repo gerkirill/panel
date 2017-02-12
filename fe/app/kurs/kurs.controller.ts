@@ -1,11 +1,11 @@
 export default class KursController {
-  constructor($interval) {
-    this.$interval = $interval;
-    // binding
-    this.int = 3600;
-    // set by link()
-    this.updateCurrencies = function() {};
-  }
+  // binding
+  private int: number = 3600;
+  // set by link()
+  private updateCurrencies: () => void;
+  private interval: ng.IPromise<any>;
+
+  constructor(private $interval: ng.IIntervalService) {}
 
   $postLink() {
     this.updateCurrencies();
@@ -13,6 +13,7 @@ export default class KursController {
       () => this.updateCurrencies(),
       (this.int ? this.int : 3600) * 1000
     );
+    this.$interval.cancel(this.interval)
   }
 
   $onDestroy() {

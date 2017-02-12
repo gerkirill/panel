@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ],
+    "types" : [
+      "angular"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
